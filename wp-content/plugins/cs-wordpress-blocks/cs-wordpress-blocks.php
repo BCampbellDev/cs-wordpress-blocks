@@ -13,3 +13,9 @@
  */
 
 // Your code starts here.
+add_action('init', function () {
+    if ( file_exists(__DIR__ . '/dynamic-feed/build/dynamic-feed/block.json') ) {
+        register_block_type(__DIR__ . '/dynamic-feed/build/dynamic-feed');
+        return;
+    }
+});
