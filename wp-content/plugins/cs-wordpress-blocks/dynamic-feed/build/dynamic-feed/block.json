@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/dynamic-feed",
+  "name": "cs/dynamic-feed",
   "version": "0.1.0",
   "title": "Dynamic Feed",
   "category": "widgets",
@@ -11,7 +11,60 @@
   "supports": {
     "html": false
   },
-  "textdomain": "dynamic-feed",
+  "attributes": {
+    "postType": {
+      "type": "string",
+      "default": "post"
+    },
+    "taxonomy": {
+      "type": "string",
+      "default": "category"
+    },
+    "termIds": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": []
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date"
+    },
+    "order": {
+      "type": "string",
+      "default": "desc"
+    },
+    "limit": {
+      "type": "number",
+      "default": 6
+    },
+    "showImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": 24
+    },
+    "showMeta": {
+      "type": "boolean",
+      "default": true
+    },
+    "viewStyle": {
+      "type": "string",
+      "default": "list"
+    },
+    "refreshKey": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "textdomain": "cs-wordpress-blocks",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
