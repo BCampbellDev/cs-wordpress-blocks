@@ -50,6 +50,17 @@
 		margin-top: 6px;
 		opacity: 0.9;
 	}
+
+	.cs-dynamic-feed--empty {
+		padding: 12px;
+		border: 1px dashed rgba(0, 0, 0, 0.25);
+		border-radius: 10px;
+		opacity: 0.85;
+	}
+
+	.dynamic-feed-show-settings-toggle {
+		margin-bottom: 0px;
+	}
 }
 
 /* CARD VIEW */

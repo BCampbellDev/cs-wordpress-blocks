@@ -1,5 +1,11 @@
 import { __ } from "@wordpress/i18n";
-import { ToggleControl, Placeholder, Spinner } from "@wordpress/components";
+import {
+	ToggleControl,
+	Placeholder,
+	Spinner,
+	Flex,
+	FlexItem,
+} from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
 import { useBlockProps } from "@wordpress/block-editor";
 import ServerSideRender from "@wordpress/server-side-render";
@@ -35,15 +41,21 @@ export default function Preview({ attributes }) {
 
 	return (
 		<div {...blockProps}>
-			<strong>{__("Dynamic Feed", "cs-wordpress-blocks")}</strong>
-
-			<ToggleControl
-				checked={toggled}
-				label={toggled ? " Hide Block Settings" : " Show Block Settings"}
-				onChange={() => {
-					setToggled(!toggled);
-				}}
-			/>
+			<Flex direction="row" align="center" justify="flex-start">
+				<FlexItem>
+					<strong>{__("Dynamic Feed", "cs-wordpress-blocks")}</strong>
+				</FlexItem>
+				<FlexItem>
+					<ToggleControl
+						checked={toggled}
+						className="dynamic-feed-show-settings-toggle"
+						label={toggled ? " Hide Block Settings" : " Show Block Settings"}
+						onChange={() => {
+							setToggled(!toggled);
+						}}
+					/>
+				</FlexItem>
+			</Flex>
 
 			{toggled && (
 				<div style={{ marginTop: 8, opacity: 0.85 }}>
