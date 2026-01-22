@@ -1,5 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import { ToggleControl } from "@wordpress/components";
+import { ToggleControl, Placeholder } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import { useBlockProps } from "@wordpress/block-editor";
 import ServerSideRender from "@wordpress/server-side-render";
@@ -21,6 +21,17 @@ export default function Preview({ attributes }) {
 	});
 
 	const [toggled, setToggled] = useState(false);
+
+	const hasTerms =
+		Array.isArray(attributes.termIds) && attributes.termIds.length > 0;
+
+	if (!hasTerms) {
+		return (
+			<Placeholder label="Dynamic Feed">
+				Select one or more terms in the sidebar to preview posts.
+			</Placeholder>
+		);
+	}
 
 	return (
 		<div {...blockProps}>
