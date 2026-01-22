@@ -8,8 +8,15 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Dynamic Feed',
 		'category' => 'widgets',
-		'icon' => 'smiley',
-		'description' => 'Example block scaffolded with Create Block tool.',
+		'icon' => 'rss',
+		'keywords' => array(
+			'feed',
+			'posts',
+			'query',
+			'category',
+			'taxonomy'
+		),
+		'description' => 'Display a dynamic feed of posts filtered by taxonomy terms, with SSR preview in the editor.',
 		'example' => array(
 			
 		),

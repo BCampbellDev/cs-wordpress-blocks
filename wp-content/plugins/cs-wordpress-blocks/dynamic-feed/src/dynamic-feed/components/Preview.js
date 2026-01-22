@@ -5,6 +5,8 @@ import {
 	Spinner,
 	Flex,
 	FlexItem,
+	Card,
+	CardMedia,
 } from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
 import { useBlockProps } from "@wordpress/block-editor";
@@ -58,34 +60,48 @@ export default function Preview({ attributes }) {
 			</Flex>
 
 			{toggled && (
-				<div style={{ marginTop: 8, opacity: 0.85 }}>
-					<div>
-						{__("Post type:", "cs-wordpress-blocks")} <code>{postType}</code>
-					</div>
-					<div>
-						{__("Taxonomy:", "cs-wordpress-blocks")} <code>{taxonomy}</code>
-					</div>
-					<div>
-						{__("Terms:", "cs-wordpress-blocks")}{" "}
-						<code>
-							{termIds?.length
-								? termIds.join(", ")
-								: __("none", "cs-wordpress-blocks")}
-						</code>
-					</div>
-					<div>
-						{__("Order:", "cs-wordpress-blocks")}{" "}
-						<code>
-							{orderBy} {order}
-						</code>
-					</div>
-					<div>
-						{__("Limit:", "cs-wordpress-blocks")} <code>{limit}</code>
-					</div>
-					<div>
-						{__("View:", "cs-wordpress-blocks")} <code>{viewStyle}</code>
-					</div>
-				</div>
+				<Card>
+					<CardMedia>
+						<div
+							style={{
+								border: "solid 1px black",
+								borderRadius: 10,
+								padding: 16,
+							}}
+						>
+							<div style={{ marginTop: 8, opacity: 0.85 }}>
+								<div>
+									{__("Post type:", "cs-wordpress-blocks")}{" "}
+									<code>{postType}</code>
+								</div>
+								<div>
+									{__("Taxonomy:", "cs-wordpress-blocks")}{" "}
+									<code>{taxonomy}</code>
+								</div>
+								<div>
+									{__("Terms:", "cs-wordpress-blocks")}{" "}
+									<code>
+										{termIds?.length
+											? termIds.join(", ")
+											: __("none", "cs-wordpress-blocks")}
+									</code>
+								</div>
+								<div>
+									{__("Order:", "cs-wordpress-blocks")}{" "}
+									<code>
+										{orderBy} {order}
+									</code>
+								</div>
+								<div>
+									{__("Limit:", "cs-wordpress-blocks")} <code>{limit}</code>
+								</div>
+								<div>
+									{__("View:", "cs-wordpress-blocks")} <code>{viewStyle}</code>
+								</div>
+							</div>
+						</div>
+					</CardMedia>
+				</Card>
 			)}
 
 			<div style={{ marginTop: 12 }}>
