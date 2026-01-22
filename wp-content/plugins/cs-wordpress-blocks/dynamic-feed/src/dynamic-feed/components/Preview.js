@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
-import { ToggleControl, Placeholder } from "@wordpress/components";
-import { useState } from "@wordpress/element";
+import { ToggleControl, Placeholder, Spinner } from "@wordpress/components";
+import { useState, useEffect } from "@wordpress/element";
 import { useBlockProps } from "@wordpress/block-editor";
 import ServerSideRender from "@wordpress/server-side-render";
 
@@ -79,6 +79,7 @@ export default function Preview({ attributes }) {
 			<div style={{ marginTop: 12 }}>
 				<ServerSideRender
 					block="cs/dynamic-feed"
+					LoadingResponsePlaceholder={() => <Spinner />}
 					attributes={{
 						...attributes,
 						// Ensures the SSR component re-fetches when you click “Refresh preview”
